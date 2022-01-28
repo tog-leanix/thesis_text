@@ -152,15 +152,16 @@ eprint=false
 \pagenumbering{Roman} % Big roman numbers
 \addtocontents{toc}{\protect\markright{}}
 
-%\newpage
-%\tableofcontents
+\newpage
+\tableofcontents
 \cleardoublepage
 \pagenumbering{arabic}
-%\listoftables % add list of tables
-%\listoffigures % add list of figures 
+\newpage
+\listoftables % add list of tables
+\listoffigures % add list of figures 
 \include{acronym} % include the acronym thing
 
-%\setcounter{page}{1}
+\setcounter{page}{1}
 \newpage
 %%%%%%%%%%%%%%%%%%%%% Startseite %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{tocdepth}{4} 
@@ -169,7 +170,14 @@ eprint=false
 \pagenumbering{arabic} % arabic numbers for the main part
 
 % Here the chapters are included
-%\include{chapter/summary} % introduction  
+
+\input{chapter_1/index} 
+\input{chapter_2/index} 
+\input{chapter_3/index} 
+\input{chapter_4/index} 
+\input{chapter_5/index} 
+\input{chapter_6/index} 
+
 % choose your type of citation here
 %\bibliographystyle{plainnat} % author and year
 %\bibliographystyle{amsalpha} % author and year short
