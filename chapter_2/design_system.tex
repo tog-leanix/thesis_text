@@ -7,7 +7,7 @@ A design system is a single source of truth for shared parts and processes, such
 \end{tcolorbox}
 Another definition goes even further and specifies the aspect of documentation of design systems:
 \begin{tcolorbox}[title=Definition of design system by \citet*{vesselov_building_2019}]
-A series of documented elements, components, and regions that include both design and front-end guidelines. The documentation contains live code examples, allowing cross-functional teams to easily reuse styles and components in several instances across an application. A design system also includes underlying design principles, rules, and guidelines that help a team build one or multiple products.
+A series of documented elements, components, and patterns that include both design and front-end guidelines. The documentation contains live code examples, allowing cross-functional teams to easily reuse styles and components in several instances across an application. A design system also includes underlying design principles, rules, and guidelines that help a team build one or multiple products.
 \end{tcolorbox}
 A basic structure of design systems can be derived from both definitions. According to this, a design system can be divided into three different parts. On the one hand, there are the guidelines, which provide users with instructions on how to use the design system and build how to build the software product. As a further subdivision are the components, which a developers or designers use. These must be made available as simple as possible so that they can be easily integrated into the end product. The last and most underestimated part is the documentation mentioned by \citet*{vesselov_building_2019}. The best components can be provided, but without clear and interactive documentation, they are only half as good.  These sections will be discussed further in the remainder of this chapter. \cite{macdonald_practical_2019}\cite{vesselov_building_2019}
 
@@ -20,29 +20,32 @@ But it's not just developers who benefit from the guidelines. For example, a pro
 Another use case for guidelines in a design system are onboarding processes within companies. Both the above-mentioned developer and product manager can use the guidelines to find their way around the product faster, but people from sales or marketing can also use this resource.  In the literature, these guidelines are also referred to as a common design language for a company.  \\
 According to \citet*{vesselov_building_2019}, guidelines can be divided into four different types: 
 
+
 \paragraph*{Formal definition} 
-Description of a component and its function. For the developer the documentation may seem trivial, but it helps to avoid misunderstandings. \cite{vesselov_building_2019}
-\begin{figure}[htbp]
+Description of a component and its function. For the developer the documentation may seem trivial, but it helps to avoid misunderstandings. \cite{vesselov_building_2019} Figure \ref{fiori_action_list} shows that a simple explanation of trivial components is sufficient to prevent any misunderstandings. In addition, the visual representation of the component helps to complete the guideline.
+\begin{figure}[ht]
 \centerline{\includegraphics[width=\linewidth]{images/fiori_action-list_formal.png}}
 \caption{SAP Fiori Action List formal guideline \cite{sap_fiori_action_nodate}}
 \label{fiori_action_list}
 \end{figure}
-\paragraph*{Usage guidelines} Here the questions should be clarified how to use the components. Furthermore, the parameters and their use are explained. The user should know from this documentation how to configure and use the component. \cite{vesselov_building_2019}
-\begin{figure}[htbp]
+\newpage
+\paragraph*{Usage guidelines} Here the questions should be clarified how to use the components. Furthermore, the parameters and their use are explained. The user should know from this documentation how to configure and use the component. \cite{vesselov_building_2019} As can be seen in Figure \ref{atlassian_button}, advice is given on where the component used should be implemented and used. Often there are also so-called anti-patterns, which indicate where the component in question should not be used.
+\begin{figure}[htb]
 \centerline{\includegraphics[width=\linewidth]{images/atlassian_button_usage.png}}
-\caption{Atlassian Design System Button usage guideline \cite{atlassian_button_nodate}}
+\caption{Atlassian Design System Button usage guideline \cite{atlassian_design_system_atlassian_nodate}}
 \label{atlassian_button}
 \end{figure}
 \paragraph*{Technical guidelines} \label{tech_guideline}
-This part of the guide is mainly intended for developers who are to implement the documented component in the software. Any ambiguities about the implementation should be clarified here. Also how the presented parameters can be used to configure the component. An often found feature here is copying code snippets. This allows developers to immediately copy-paste the component code they have just read into their code.  \cite{macdonald_practical_2019} \cite{vesselov_building_2019}
+\begin{wrapfigure}{r}{7cm}
+	\includegraphics[width=7cm]{images/pluralsight_date-picker_technical.png}
+	\caption{Pluralsight Design System Date picker technical guidelines \cite{pluralsight_datepicker_nodate}}
+	\label{pluralsight_date_picker}
+	\end{wrapfigure}
+This part of the guide is mainly intended for developers who are to implement the documented component in the software. Any ambiguities about the implementation should be clarified here.  \cite{macdonald_practical_2019} Also how the presented parameters can be used to configure the component. An often found feature here is copying code snippets. This allows developers to immediately copy-paste the component code they have just read into their code. \cite{vesselov_building_2019} A good example can be seen in figure \ref{pluralsight_date_picker}. The implementation of Pluralsight's Date Picker is explained very well here with a code example. The code snippets can be copied directly or opened and tried out in a code sandbox.
+
+\paragraph*{Related components} Linking components and patterns help the user explore the design system. Also, this can help the creative process for designers and developers.  \cite{vesselov_building_2019} As you can see in the example of figure \ref{servicenow_accordion}, such links not only help in the creative process, but also for faster work with the component. This way, if there are problems with the implementation, the developer can quickly understand the relationship between the used components.
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=\linewidth]{images/pluralsight_date-picker_technical.png}}
-\caption{Pluralsight Design System Date picker technical guidelines \cite{pluralsight_datepicker_nodate}}
-\label{pluralsight_date_picker}
-\end{figure}
-\paragraph*{Related components} Linking components and regions help the user explore the design system. Also, this can help the creative process for designers and developers.  \cite{vesselov_building_2019}
-\begin{figure}[htbp]
-\centerline{\includegraphics[width=\linewidth]{images/servicenow_accordion_related.png}}
+\centerline{\includegraphics[height=150px]{images/servicenow_accordion_related.png}}
 \caption{Servicenow Accordion related components \cite{servicenow_now_nodate}}
 \label{servicenow_accordion}
 \end{figure}
@@ -90,28 +93,22 @@ After reviewing various design systems, their component libraries can be split i
 	\item \textbf{Layout} - Spacing and presentation of content placement on a site
 	\item \textbf{Styles} - Color definitions, Typography, Icons
 	\item \textbf{Components} - Reusable parts fulfilling one purpose
-	\item \textbf{Regions} - Combination of multiple components 
+	\item \textbf{Patterns} - Combination of multiple components 
 \end{itemize}
 
 
-
-
-% Six interlocking areas make up a design system: layout, styles, components, regions, content, and usability. A robust design system should contain guiding design principles, guidelines for use and implementation, as well as a component library that includes front-end code. \cite[p.23]{vesselov_building_2019}
-
-% Vesselov ab Seite 71
-% https://design-system.service.gov.uk/
-% Wie GOV AUS 
-
-% https://www.bbc.co.uk/gel
-% Kein Komponenten sondern Fokus auf Patterns, Foundation als Principles
 \paragraph{Layout}
 The foundation of any design system is the ability to place, move, or arrange elements on web pages. To achieve a consistent appearance, it is important to align spacing and positioning. 
 For this purpose, so-called design tokens in the form of CSS variables are often used. Similar to Tailwind (\url{https://tailwindcss.com/}), these variables are then translated into CSS classes so that the developer does not have to use the variables natively. And thus does not need to know CSS.  \\
-Salesforce Lightning Design System, for example, lists all layout tools under "Utilities." It sets sizes for text, simple boxes, and spacing between components. In fact, a sophisticated grid layout system can be seen as well. \\
+Salesforce Lightning Design System, for example, lists all layout tools under \textbf{Utilities}. It sets sizes for text, simple boxes, and spacing between components. In fact, a sophisticated grid layout system can be seen as well. \\
 
-IMAGE
+\begin{figure}[hbtp]
+	\centerline{\includegraphics[width=\linewidth]{images/salesforce_lightning_layout.png}}
+	\caption{Salesforce Lightning Design System grid layout \cite{lightning_design_system_lightning_nodate}}
+	\label{salesforce_lightning_layout}
+\end{figure}
 
-As can be seen, CSS classes are used to achieve the desired layout. Both dynamic and static layouting are supported. So the user has all the possibilities to use the layout of the design system. \\
+As can be seen in figure \ref{salesforce_lightning_layout}, CSS classes are used to achieve the desired layout. Both dynamic and static layouting are supported. So the user has all the possibilities to use the layout of the design system. \\
 Besides the usual regulations for spacing and positioning, other points like visibility, scrollability or printability can also be described in the layout. Basically, all requirements for visible elements in the target system can be specified by the default layouting in the design system.
 
 \paragraph{Styles}
@@ -119,18 +116,23 @@ Styles are about colors, typography and icons. Here it is important to establish
 It is important to mention that when using the style theme in multiple products, there should be a possibility to configure it. This way, each product can still have a unique look and feel. \cite{vesselov_building_2019}
 \subparagraph{Color}
 The introduction of a color system is a good first step on the way to a design system. Colors are important for the aesthetics of a product and can be easily iterated and changed without changing functionality or layout. It is always important to keep accessibility in mind when choosing colors. For certain text sizes, it is important to maintain a certain contrast. The WCAG (\url{https://www.w3.org/WAI/standards-guidelines/wcag/}) describes this contrast with two levels AA and AAA. This contrast is especially important if the product has several long paragraphs.  \\
-Usually, not a single color is created, but an entire palette. The colors are often divided into primary, secondary, text color, background color, accent colors, shadows and so on. Also here CSS variables with the appropriate names are created to use them. The challenge is to offer a well-defined color palette, but at the same time not to overload the user, because with too many colors the overview gets lost quickly. \cite{vesselov_building_2019}
+\begin{figure}[hbtp]
+	\centerline{\includegraphics[height=10cm]{images/adobe_spectrum_color_palette.png}}
+	\caption{Adobe Spectrum color palette \cite{spectrum_adobe_spectrum_nodate}}
+	\label{adobe_spectrum_colors}
+\end{figure}
 
-
-IMAGE 
-
+Usually not just one colour is created, but a whole palette, as can be seen in Adobe's Spectrum Design System (figure \ref{adobe_spectrum_colors}). The colors are often divided into primary, secondary, text color, background color, accent colors, shadows and so on. Also here CSS variables with the appropriate names are created to use them. The challenge is to offer a well-defined color palette, but at the same time not to overload the user, because with too many colors the overview gets lost quickly. \cite{vesselov_building_2019}
 
 \subparagraph{Typography}
 When it comes to a typography system, it can be divided into two categories of typography. First, there is typography that is used for two or perhaps three words at a time, such as headings or button elements. Second, there is defined typography for longer texts such as paragraphs. \\
+\begin{figure}[hbtp]
+	\centerline{\includegraphics[height=5cm]{images/gov_uk_typo.png}}
+	\caption{GOV.UK Design System caption typography example \cite{govuk_govuk_nodate}}
+	\label{gov_uk_typo}
+\end{figure}
 In both cases, it must follow the defined layout system. Important things like baseline height, padding, and margins are important here. A helpful piece of advice is to represent all types of text possibilities in your typography system.  \cite{vesselov_building_2019}
 
-
-IMAGE
 
 \subparagraph{Iconography}
 There is no need to create iconography with each new design system. In the wild, there are many good options that can be used right away. But creating a new iconography provides many opportunities to visualize your own design language in the iconography.
@@ -139,29 +141,35 @@ As with other parts of a design system, documentation is key. How to create new 
 \\
 To make them accessible to the team, there should be a description of how to add them to the software. There should be the same representation of the source code as in the technical guidelines in \ref{tech_guideline}. \cite{vesselov_building_2019}
 
-
-IMAGE
 \paragraph{Components}
 With all the tools and fundamentals in hand, the main part of a component library, the components can be assembled. Components should be highly reusable and as flexible as possible. They represent building blocks of applications.  \\
-From combinations of layout and style specifications components emerge for different use cases. By using these defined components within applications, the developer ensures that guidelines are followed. For certain combinations of components in an application, there is another term called regions, which is explained in more detail in the next chapter \ref{regions}. \\
+\begin{figure}[hbtp]
+	\centerline{\includegraphics[height=5cm]{images/zendesk_component_example.png}}
+	\caption{Zendesk Garden dropdown component \cite{zendesk_garden_zendesk_nodate}}
+	\label{zen_garden_component}
+\end{figure}
 
+Combinations of layout and style specifications result in components for different use cases. As can already be seen in figure \ref{zen_garden_component}, a widely used component in a design system is the dropdown component. Since the native dropdowns are often not able to fulfil the full user experience requirements, they are often implemented in a design system.  By using these defined components in applications, the developer ensures that the guidelines are adhered to. For certain combinations of components in an application, there is another term called patterns, which is explained in more detail in the next chapter \ref{patterns}. \\
+\begin{figure}[hbtp]
+	\centerline{\includegraphics[height=5cm]{images/zendesk_component_interface.png}}
+	\caption{Zendesk Garden dropdown interface \cite{zendesk_garden_zendesk_nodate}}
+	\label{zen_garden_interface}
+\end{figure}
+To achieve flexibility and reusability, it is important to always have the component's interfaces in mind. Well-defined interfaces are the key to successful components. A possible solution for good interface documentation can be seen in figure \ref{zen_garden_interface}. A simple table with the property value, the expected type and a short description is often sufficient. In some design systems, these input properties can be changed in a life demo so that the developer can see how the component changes accordingly.\\
+To achieve well documented interfaces, always involve the engineers building the actual product to get their feedback on them. As with other parts of a design system, documentation is key. A well-structured and systematic approach to how a component works helps developers use the components.  \cite{vesselov_building_2019}
 
-EXAMPLE OF COMPONENT
-
-
-DOCUMENTATION EXAMPLE
-
-
-In order to achieve flexibility and reusability, it is important to have always the interfaces of the component in the mind. Well defined interfaces are the key to successful components. To achieve this, always involve the engineers building the actual product to get their feedback on the interfaces. As with other parts of a design system, documentation is key. A well-structured and systematic approach to how a component works helps developers use the components.  \cite{vesselov_building_2019}
-
-
-
-INTERFACE EXAMPLE
-\paragraph{Regions} \label{regions}
-Often, a combination of certain components is used over and over again in different places and even in different applications. To cover this use case, a design system has a concept called regions. Regions specify a combination of several components and document the use and composition of these components. They can be seen as an extended documentation to reproduce a certain behavior in an application. 
+\paragraph{Patterns} \label{patterns}
+Often, a combination of certain components is used over and over again in different places and even in different applications. To cover this use case, a design system has a concept called patterns.\\ 
+Patterns specify a combination of several components and document the use and composition of these components. They can be seen as an extended documentation to reproduce a certain behavior in an application. 
 \\
-Regions refer not only to the interaction of components, but also to the switching of visualization due to changes in a user's permissions, for example. All these types of UI-related documentation needed to define a particular user experience can be documented here.   \cite{vesselov_building_2019}
+\begin{figure}[hbtp]
+	\centerline{\includegraphics[height=7.5cm]{images/atlassian_abstract_form.png}}
+	\caption{Atalssian Design System abstract form layout \cite{atlassian_design_system_atlassian_nodate}}
+	\label{atlassian_form_layout}
+\end{figure}
+A pattern for forms can be found in Atlassian's design system. Figure \ref{atlassian_form_layout} shows an abstract visualisation of how input fields and buttons should be placed when a form is on a single page. Using this abstraction, there is no room for interpretation and developers and designers can get on with their work. \\
+Patterns refer not only to the interaction of components, but also to the switching of visualization due to changes in a user's permissions, for example. All these types of UI-related documentation needed to define a particular user experience can be documented here.   \cite{vesselov_building_2019}
 \\
-Most often, regions appear in the general navigation of applications. They evolve naturally from the finished products and grow iteratively with more and more feedback from the product development team.
+Most often, patterns appear in the general navigation of applications. They evolve naturally from the finished products and grow iteratively with more and more feedback from the product development team.
 \\
 A good example is the navigation bar. Components such as buttons and dropdown components can be used in combination with the skeleton of a navigation bar to create the region called Navigation Bar. 
