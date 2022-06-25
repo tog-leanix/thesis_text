@@ -24,6 +24,6 @@ Inspecting the DOM element of the button component, the element explorer looks l
     \label{button_element_explorer}
 \end{figure}
 It is important that CSS variables declared in the root of the document are also available in the shadow DOM. In contrast, style declarations, e.g. for the button element in the overall document, are not applied to DOM elements in the shadow DOM. \\
-The <slot> element in the shadow DOM is a default placeholder for anything that is inserted into the <saas-button> element when using the web component. The content is projected within the shadow DOM and inserted in place of the <slot> element. This makes it possible to create nested elements with web components which is useful in many different use cases. \\
+The \texttt{<slot>} element in the shadow DOM is a default placeholder for anything that is inserted into the \texttt{<saas-button>} element when using the web component. The content is projected within the shadow DOM and inserted in place of the \texttt{<slot>} element. This makes it possible to create nested elements with web components which is useful in many different use cases. \\
 
 The example of a simple button component shows how to create and use the components of SDS. From here it is trivial to build all the different components needed to create patterns. This is because patterns, as described, are a combination of components that can be reused in applications. The missing piece to using the SDS in an application is integration, which is explained in the next chapter.
