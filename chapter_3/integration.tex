@@ -1,4 +1,4 @@
-\subsection{Design System Build and Integration}
+\subsection{Design System Build and Integration}\label{SDS_build_and_integration}
 The last step to complete the user story of the \ac{SDS} is to integrate the system into an application. This chapter explains how to package the \ac{SDS} and load it into a desired application. It is important that the integration is simple so as not to discourage developers from using the design system. \\
 
 The build process is the first part that is important to understand the integration workflow. Webpack is the build tool used by \ac{SDS}. As shown in Figure 3 in Chapter 1, the components of the design system are built using Typescript, including the Lit framework and using SCSS for styling. Since Typescript and SCSS are not supported by the browser, they must be processed beforehand. Therefore, Webpack comes into play to compile the code. \\
