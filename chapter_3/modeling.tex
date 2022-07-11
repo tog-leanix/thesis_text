@@ -35,29 +35,57 @@ With these requirements, Figure \ref{architecture_sds} draws an example architec
 \label{architecture_sds}
 \end{figure}
 
-According to the description of a design system presented in chapter 2, the SaaS design system can be roughly divided into four parts.
+The architecture model shown above divides the \acl{SDS} into four parts. The details of these parts are explained in the next sections.
 \subsubsection{Design Principles}
-In terms of design principles, the \ac{SDS} strives to keep them lean and easy to understand, as the design system is intended to serve as a basis for other design systems. The \textbf{Simple} principle states that component design should not have unnecessary styles or features that make it difficult to extend. \\
-Many products strive to implement accessibility in their products. With the \textbf{Accessible} principle, \ac{SDS} emphasises the importance of accessible user interfaces. This is not only important in terms of inclusion, but also helps accessibility in the overall user experience for all users. \\
-The third and final principle is \textbf{Solid}. As stated earlier, the \ac{SDS} should be a foundation for other design systems to build upon. Therefore, the importance of a stable and consistent API is very important. For this reason, the design system has deliberately chosen \textbf{Solid} as the third and final principle. \\
+In terms of design principles, the \ac{SDS} strives to keep them lean and easy to understand. This helps the design system to serve as a basis for other design systems. \\
+
+The \textbf{Simple} principle states that component design should not have unnecessary styles or features that make it difficult to extend. This principle underlines the idea of keeping the entire design system lean. Developers understand lean descriptions and clear documentation much better than reading a wall of text. \\
+
+Many products strive to implement accessibility in their products. With the \textbf{Accessible} principle, \ac{SDS} emphasizes the importance of accessible user interfaces. This emphasizes not only significant in terms of inclusion, but also helps accessibility in the overall user experience for all users. Because \textbf{Accessibility} doesn't just come into play when it relates to disabilities, it helps the application with the overall user experience. \\
+
+The third and final principle is \textbf{Solid}. As stated earlier, the \ac{SDS} is a foundation for other design systems to build upon. Therefore, the importance of a stable and consistent API is paramount. Components and patterns should not change regularly. Versioning allows developers to choose their desired version of the \ac{SDS} without having to adapt. For this reason, the design system has deliberately chosen \textbf{Solid} as the third and final principle. \\
+
+The first iteration of the \acl{SDS} principles provides a good foundation on which to build. As described in Chapter \ref{design_principles}, finding the right design principles will take a few iterations to get right. But by starting with \textbf{Simple}, \textbf{Accessible}, and \textbf{Solid}, designers and developers will find the right way to use this design system.
 \subsubsection{Guidelines}
-The \ac{SDS} guidelines are based on the design principles just presented. In addition to the core guidelines on extension, accessibility and basic use, there are also guidelines that focus on contributions and collaboration. As this is an open source system, as many people as possible should be able to work on it. \\
-The extension guidelines address how to integrate \ac{SDS} as the basis for a company's own design system. It shows developers and designers how to create their own from the components provided. \\
-Since accessibility is also a design principle, there must be a guideline that defines what the \ac{SDS} means by accessibility. It should give the user a definition and sources for accessibility. But also self-designed components should have a guideline that helps users to implement accessibility. After this guideline, the user should have no more questions about accessibility. \\
-As a third guideline, the \ac{SDS} will support the user in using the system. This guide could also be seen as an entry guide and will cover the basics. Importing the design system, proper bootstrapping and guidance on configuring the system. This may seem self-explanatory, but the lack of these guidelines often prevents users from using the system effectively. The user guide should be as simple as possible and cover every small step needed to get started with the \ac{SDS}. \\
-One goal of this design system is to be developed by the community for the community. However, this can quickly get out of hand if everyone contributes without any guidance. Therefore, it is important to introduce some from the beginning. This guide provides guidance on how to contribute to the component library, but also on how to enforce changes to the guidelines and principles. As this design system is not set in stone, there should be opportunities to change and adapt everything. What this will look like in the end will evolve over time. Some ideas could be a voting process or an RFC (source) process, as is common in the software industry. \\
-To achieve high interactivity in such a design system, some design systems introduce blogs and forums for knowledge exchange. In this way, users can connect, discuss and contribute to ideas to further improve the design system. The most important point is the moderation of such an interaction platform. A well-moderated blog and forum will further enhance the community around the \ac{SDS}. \\
-Overall, it can be said that the guidelines for the \ac{SDS} are aimed at building a community around the design system to contribute and enable users to create a community design system. 
+The design principles just presented form the basis for the \ac{SDS} guidelines. In addition to the core guidelines on extension, accessibility, and essential use, some guidelines focus on contributions and collaboration. As this is an open-source system, as many people as possible should be able to work on it. \\
+
+The extension guidelines address how to integrate \ac{SDS} as the basis for a company's own design system. It shows developers and designers how to create their own from the components provided. The goal of such a guide is to help system developers use the SDS as a foundation. The guide helps developers and designers to build their system on the SDS instead of introducing complex integrations. \\
+
+Since accessibility is also a design principle, a guideline must define what the \ac{SDS} means by accessibility. The guideline should give the user a definition and sources for accessibility. But there should also be a manual for self-designed components to help users implement accessibility. Understanding this guide, users should no longer have accessibility questions when designing new interfaces. \\
+
+As a third guideline, the \ac{SDS} will support the user in using the system. This guide could also be seen as an entry guide and will cover the basics. Importing the design system, proper bootstrapping, and guidance on configuring the system. Such a guideline may seem self-explanatory, but the lack of it often prevents users from using the system. The usage guide should be as simple as possible and cover every small step needed to get started with the \ac{SDS}. \\
+
+One goal of this design system is to be developed by the community for the community. However, this can quickly get out of hand if everyone contributes without guidance. Therefore, it is crucial to introduce some from the beginning. This guide guides how to contribute to the component library and enforce changes to the guidelines and principles. \\
+As this design system evolves over time, there should be opportunities to change and adapt. What this will look like in the end will evolve over time. What this will look like in the end will evolve. Some ideas could be a voting process or an RFC process, as is standard in the software industry. \\
+
+
+Some design systems introduce blogs and forums for knowledge exchange to achieve high interactivity in a design system. In this way, users can connect, discuss and contribute to ideas to further improve the design system. A well-moderated blog and forum will further enhance the community around the \ac{SDS}. \\
+Since the \ac{SDS} won't be a product but an open source project, forums and blogs will be the marketing platform to spread the idea of the design system. The goal is to build a strong community around the \ac{SDS}. So that some of the advocates end up contributing to the actual design system. \\
+
+In summary, the guidelines of the \acl{SDS} are about creating a community around the design system. Developer and designers should not only using it for their desired goal, but see the potential to collaborate for the bigger picture behind \ac{SDS}.
+
+
 \subsubsection{Components} \label{sds-component}
-Without well-assembled components, design systems cannot exist. Therefore, choosing the right technology package for building components is very important. 
-In the case of \ac{SDS}, one of the most important requirements is that the system is usable independently of the front-end framework used. To achieve this, \ac{SDS} uses the web components that are supported in almost all modern browsers. As it is possible to create web components without importing libraries or frameworks, it is for \ac{SDS}. \citep{mdn_web_component_nodate} \\
-Creating web components natively can be complicated. For this reason, the Lit framework was designed to make it easier for developers to create web components. With a focus on ease of understanding, intelligent DOM updates and small package size (5 KB), Lit is a perfect complement for creating components for design systems based on standard web components. \citep{lit_nodate} \\
-To further assist developers, \ac{SDS} uses Typescript, a superset of Javascript. It extends Javascript with types and interfaces. Typescript must be compiled into Javascript for the browser to understand it, but this allows the developer to find errors much faster because it fails at compile time rather than at runtime. \citep{microsoft_typescript_nodate} \\
-To use and provide design tokens for colours or spacing, the \ac{SDS} uses custom CSS variables. They are imported into the root element during bootstrapping of the design system. The definition of the design tokens can be found in the documentation. \citep{mdn_css_vars_nodate} \\
-Last but not least, the design system components created must be documented and accessible to users. To start \ac{SDS}, Storybook is used, which has a lot of built-in functions that support documenting the components. With MDX, the combination of Markdown templating (MD) and code injection via JSX, it is possible to write fluid documentation without having to jump back and forth between files. \citep{otander_markdown_2017} \\
-With this technology stack, \ac{SDS} provides users with highly reusable web components that are not only easy for users to access, but also easy for contributors to develop. 
+Without well-assembled components, design systems cannot exist. Therefore, choosing the right technology package for building components is very important. In the case of \ac{SDS}, one of the most essential requirements is that the system is usable independently of the frontend framework used. To achieve this, \ac{SDS} uses the web components supported in almost all modern browsers. As it is possible to create web components without importing libraries or frameworks, it is for \ac{SDS}. \citep{mdn_web_component_nodate} \\
+
+Creating web components natively can be complicated. The Lit Element framework helps developers build web components by eliminating some of the pitfalls of implementing web components from scratch. With a focus on ease of understanding, intelligent DOM updates, and a small package size (5 KB), Lit is a perfect addition for creating components for design systems based on standard web components. \citep{lit_nodate} \\
+
+To further assist developers, \ac{SDS} uses Typescript, a superset of Javascript. It extends Javascript with types and interfaces. Typescript must be compiled into Javascript for the browser to understand, but this allows the developer to find errors much faster because it fails at compile time rather than at runtime. \citep{microsoft_typescript_nodate} \\
+
+The \ac{SDS} uses custom CSS variables to use and provide design tokens for colors or spacing. The design system imports the design tokens into the root element during bootstrapping. In the documentation of the design system exists a page with an overview of all design tokens. \citep{mdn_css_vars_nodate} \\
+
+Last but not least, users must have access to the documentation of the components and tokens. Storybook is the documentation tool for the \ac{SDS}. It has many built-in functions that are useful for documenting components. With MDX, the combination of Markdown templating (MD) and code injection via JSX, it is possible to write fluid documentation without having to jump back and forth between files while documenting components. \citep{otander_markdown_2017} \\
+
+With this technology stack, \ac{SDS} provides users with highly reusable web components that are easy for users to access but also easy for contributors to develop.
+
+
 \subsubsection{Patterns}
-An essential part of the \ac{SDS} are the patterns. They describe how user interfaces should be designed to align with the core capability of this design system. The patterns help developers automatically apply best practices and web standards without having to read an entire text. \\
-Patterns are created using components and standard HTML elements provided by the design system. These are easily accessible to the developer by copy and paste. With additional documentation on when to use them and when not to use them. \\
-The patterns are supported by additional guidelines on how they can be adapted and redesigned. This enables developers to meet the requirements needed for their own design system.\\
-Accordingly, live examples show the developer how the patterns will work in the final product. With several different examples for each pattern, the possibilities for customising each pattern are presented. \ac{SDS} users also have the opportunity to share their creations and application of patterns below the documentation. 
+An essential part of a design systems are patterns. Patterns try to combine the capabilities of a design system with the design of user interfaces. In the case of \ac{SDS}, patterns help developers automatically apply best practices and web standards without having to read an entire text. \\
+
+The combination of standard HTML elements and components from SDS creates patterns in the SDS. These are easily accessible to the developer by copying and pasting code into the desired application that has implemented the SDS. Additional documentation helps the developer to avoid using patterns where they do not belong. \\
+
+SDS patterns come with special documentation that allows for customization and redesign. The documentation enables developers to fulfill their requirements for their own design system.\\
+
+As with the component documentation, live examples show the developer how the design system patterns will work in the final product. Several different examples for each pattern present the possibilities for individual design. \ac{SDS} users have the opportunity to share their creations and application of patterns below the documentation. \\
+
+The big benefit of using SDS is the patterns. They simplify web accessibility compliance and leave enough room for individual user designs. The correct use of patterns is crucial for a successful integration of \ac{SDS} into a product.
