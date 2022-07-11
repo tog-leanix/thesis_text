@@ -1,7 +1,8 @@
 \subsection{Architecture}
-Modelling the architecture of a system that supports customization of SaaS product user interfaces is not a trivial task. Often, user interfaces for products are developed only to support their purpose. Finding common ground for multiple products can be difficult.  \\
-Design systems define a common place where the company's products can align. Why is it not possible to develop a central system to create a common idea for user-friendly SaaS products? Not only do well-designed components help align, but a design system foundation with guidelines and principles helps developers and designers create a good product. \\
-Ten different design systems from well-known SaaS products as well as design systems with a common purpose help to model a new design system. The goal is to identify best practices from the SaaS world and understand the needs of companies using design systems.
+Modeling the architecture of a system that supports customization of SaaS product user interfaces is not a trivial task. Most of the time, user interface design serves only one product. However, the goal of \ac{SDS} is to find common ground for multiple products in one domain. \\
+Design systems define a common place where the company's products can align. Why is it impossible to develop a central system to create a common idea for user-friendly SaaS products? Not only do well-designed components help align, but a design system foundation with guidelines and principles helps developers and designers create a good product. \\
+
+Discovering ten different design systems from popular SaaS products, as well as design systems with a common purpose, help model a new design system. The goal is to identify best practices from the SaaS world and understand the needs of companies using design systems. Table \ref{tab:design_systems_in_the_wild} reflects the idea of a design system for any business or purpose. The idea varies from design system to design system. \\
 \begin{table}[!ht]
 \begin{tabular}{|p{0.2\linewidth} | p{0.7\linewidth}|}
 \hline
@@ -19,22 +20,27 @@ Pluralslight Design System \cite{pluralsight_ds_nodate} & Design System without 
 \end{tabular}
 \caption{\label{tab:design_systems_in_the_wild} Overview of 10 existing design systems}
 \end{table}
-As can be seen in table \ref{tab:design_systems_in_the_wild} for these ten examples of design system, the interpretation of one can vary. \\
-A good reference for a design system with a suitable use case is the Base Web Design System. Its purpose of providing a base of styles and functional components helps developers customise for their products. Also, the fact that this design system is open source underlines that this design system has been developed by the community and is not controlled by a corporate design team. Built-in accessibility is also a requirement that must be present in a common design system. The instructions on how to extend and use the design system are also a perfect reference. \\
-But there are also disadvantages. The Base Web Design System lacks guidelines and principles that are crucial for a design system. A look at Google's Material Design shows that even an open-source and versatile design system can have design principles. Design principles help developers get an idea of how to develop and design with the system. Therefore, design principles are indispensable in a design system and should not be missing. \\ \newpage
-Another reason, is the use of React for creating the components in the Base Web Design System. As a design system that should be used by everyone as a standard for the implementation of SaaS products, it is therefore unsuitable. As developers are expected to use React as a frontend library. Looking at other examples such as the GOV UK Design System or Salesforce's Lightning Design System shows that it is possible to create components using web standards that can be used by anyone without having to use a library. \\
-With these requirements, an architecture can be drawn as can be seen in figure \ref{architecture_sds}. \\
+
+A good reference for a design system with a suitable use case is the Base Web Design System. Its purpose of providing a base of styles and functional components helps developers to extend the design system and create their own for their products. Also, the fact that this design system is open source underlines that the community is developing this design system, not a corporate design team. As a shared design system, it focuses particularly on accessibility and internationalization. The tutorial explains how to extend and use the design system, which is a perfect reference model for \ac{SDS}. \\
+
+But there are also disadvantages. The Base Web Design System lacks guidelines and principles that are crucial for a design system.
+A look at Google's Material Design shows that even an open-source and versatile design system can have design principles. Design principles help developers get an idea of how to develop and design with the system. Therefore, design principles are essential for design systems. \\
+
+Another reason why the Base Web Design System is not a perfect model is the use of React to create the components. The design system forces developers to use React as a front-end library in their products. This is not an option for SDS to bind developers to a single front-end framework. Therefore, this characteristic of the Base Web Design System is unsuitable. Other examples such as the GOV UK Design System or Salesforce's Lightning Design System show that it is possible to create components using only web standards. \\
+
+With these requirements, Figure \ref{architecture_sds} draws an example architecture of what the SDS may look like.\\
 \begin{figure}[htbp]
 \centerline{\includegraphics[width=\linewidth]{images/architecture_sds.png}}
 \caption{Architecture of SaaS Design System}
 \label{architecture_sds}
 \end{figure}
+
 According to the description of a design system presented in chapter 2, the SaaS design system can be roughly divided into four parts.
-\subsubsection*{Design Principles}
+\subsubsection{Design Principles}
 In terms of design principles, the \ac{SDS} strives to keep them lean and easy to understand, as the design system is intended to serve as a basis for other design systems. The \textbf{Simple} principle states that component design should not have unnecessary styles or features that make it difficult to extend. \\
 Many products strive to implement accessibility in their products. With the \textbf{Accessible} principle, \ac{SDS} emphasises the importance of accessible user interfaces. This is not only important in terms of inclusion, but also helps accessibility in the overall user experience for all users. \\
 The third and final principle is \textbf{Solid}. As stated earlier, the \ac{SDS} should be a foundation for other design systems to build upon. Therefore, the importance of a stable and consistent API is very important. For this reason, the design system has deliberately chosen \textbf{Solid} as the third and final principle. \\
-\subsubsection*{Guidelines}
+\subsubsection{Guidelines}
 The \ac{SDS} guidelines are based on the design principles just presented. In addition to the core guidelines on extension, accessibility and basic use, there are also guidelines that focus on contributions and collaboration. As this is an open source system, as many people as possible should be able to work on it. \\
 The extension guidelines address how to integrate \ac{SDS} as the basis for a company's own design system. It shows developers and designers how to create their own from the components provided. \\
 Since accessibility is also a design principle, there must be a guideline that defines what the \ac{SDS} means by accessibility. It should give the user a definition and sources for accessibility. But also self-designed components should have a guideline that helps users to implement accessibility. After this guideline, the user should have no more questions about accessibility. \\
@@ -42,7 +48,7 @@ As a third guideline, the \ac{SDS} will support the user in using the system. Th
 One goal of this design system is to be developed by the community for the community. However, this can quickly get out of hand if everyone contributes without any guidance. Therefore, it is important to introduce some from the beginning. This guide provides guidance on how to contribute to the component library, but also on how to enforce changes to the guidelines and principles. As this design system is not set in stone, there should be opportunities to change and adapt everything. What this will look like in the end will evolve over time. Some ideas could be a voting process or an RFC (source) process, as is common in the software industry. \\
 To achieve high interactivity in such a design system, some design systems introduce blogs and forums for knowledge exchange. In this way, users can connect, discuss and contribute to ideas to further improve the design system. The most important point is the moderation of such an interaction platform. A well-moderated blog and forum will further enhance the community around the \ac{SDS}. \\
 Overall, it can be said that the guidelines for the \ac{SDS} are aimed at building a community around the design system to contribute and enable users to create a community design system. 
-\subsubsection*{Components} \label{sds-component}
+\subsubsection{Components} \label{sds-component}
 Without well-assembled components, design systems cannot exist. Therefore, choosing the right technology package for building components is very important. 
 In the case of \ac{SDS}, one of the most important requirements is that the system is usable independently of the front-end framework used. To achieve this, \ac{SDS} uses the web components that are supported in almost all modern browsers. As it is possible to create web components without importing libraries or frameworks, it is for \ac{SDS}. \citep{mdn_web_component_nodate} \\
 Creating web components natively can be complicated. For this reason, the Lit framework was designed to make it easier for developers to create web components. With a focus on ease of understanding, intelligent DOM updates and small package size (5 KB), Lit is a perfect complement for creating components for design systems based on standard web components. \citep{lit_nodate} \\
@@ -50,7 +56,7 @@ To further assist developers, \ac{SDS} uses Typescript, a superset of Javascript
 To use and provide design tokens for colours or spacing, the \ac{SDS} uses custom CSS variables. They are imported into the root element during bootstrapping of the design system. The definition of the design tokens can be found in the documentation. \citep{mdn_css_vars_nodate} \\
 Last but not least, the design system components created must be documented and accessible to users. To start \ac{SDS}, Storybook is used, which has a lot of built-in functions that support documenting the components. With MDX, the combination of Markdown templating (MD) and code injection via JSX, it is possible to write fluid documentation without having to jump back and forth between files. \citep{otander_markdown_2017} \\
 With this technology stack, \ac{SDS} provides users with highly reusable web components that are not only easy for users to access, but also easy for contributors to develop. 
-\subsubsection*{Patterns}
+\subsubsection{Patterns}
 An essential part of the \ac{SDS} are the patterns. They describe how user interfaces should be designed to align with the core capability of this design system. The patterns help developers automatically apply best practices and web standards without having to read an entire text. \\
 Patterns are created using components and standard HTML elements provided by the design system. These are easily accessible to the developer by copy and paste. With additional documentation on when to use them and when not to use them. \\
 The patterns are supported by additional guidelines on how they can be adapted and redesigned. This enables developers to meet the requirements needed for their own design system.\\
