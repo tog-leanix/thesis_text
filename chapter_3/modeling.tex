@@ -1,45 +1,65 @@
 \subsection{Architecture}
-Modeling the architecture of a system that supports customization of SaaS product user interfaces is not a trivial task. Most of the time, user interface design serves only one product. However, the goal of \ac{SDS} is to find common ground for multiple products in one domain. \\
-Design systems define a common place where the company's products can align. Why is it impossible to develop a central system to create a common idea for user-friendly SaaS products? Not only do well-designed components help align, but a design system foundation with guidelines and principles helps developers and designers create a good product. \\
+The actual architecture of the \ac{SDS} describes the structure of the \ac{SDS}. The elaboration models the architecture according to Starke's four-view principle. The four perspectives describe different aspects of the system architecture. \cite{starke_effektive_2020}
 
-With these requirements, Figure \ref{architecture_sds} draws an example architecture of what the SDS may look like.\\
+\subsubsection{Context perspective}
+The context perspective is an overview of the system by modeling out the dependencies to other systems and actors interacting with the system.\\
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=\linewidth]{images/architecture_sds.png}}
-\caption{Architecture of SaaS Design System}
-\label{architecture_sds}
+    \centerline{
+    \includegraphics[width=\linewidth]{images/context_view_sds.png}}
+\caption{Context perspective of SaaS Design System}
+\label{context_view_sds}
 \end{figure}
 
-The architecture model shown above divides the \acl{SDS} into four parts. The details of these parts are explained in the next sections.
-\subsubsection{Design Principles}
+Figure \ref{context_view_sds} shows the first view of \citeauthor{starke_effektive_2020}'s approach to modeling the system architecture - the context perspective. As described in the use case in Section \ref{sds_requirements}, the \ac{SDS} has three stakeholders interacting with the design system. The diagram shows the actively interacting stakeholders (\ac{SDS} users and collaborators) through their connections to the \ac{SDS}. \\
+It also shows the "end user" who is not directly connected to the \ac{SDS}, but to a product from a SaaS company. Nevertheless, it is important to mention the end user is the reason why the \ac{SDS} ultimately exists. Following the arrow trail that starts from the SaaS company's product, the \ac{SDS} will always be the one to end up with. This means that the product uses the \ac{SDS} in some way either directly or through the company's design system. \\
+The stakeholder who interacts directly with both the SDS and the company's product is the SDS user. User is perhaps a bit misleading, but if you take it that way, this persona uses the SDS to develop or design products from it. This stakeholder may also build the company's design system based on the SDS. This design system is then used by the company's products.\\
+The last persona is the collaborator. The collaborator is not interested in applications or design systems that use SDS. The only thing the collaborator wants to do is contribute to the open source project. This is also the reason why this actor is placed inside the system, as the box around him represents the community around SDS.
+
+\subsubsection{Building block view}
+The building block view takes the architecture to the next level of detail. The diagrams use the context perspective and go all the way into the presented system, in this case \ac{SDS}. The view lists connections and dependencies to various things like frameworks, databases, components, scripts, and more. \\
+The building block view consists of different layers. This makes it possible to focus on important aspects of the architecture in several steps. Diagrams abstract objects so that they can be discussed in more detail later. \cite{starke_effektive_2020} \\
+
+\paragraph{Building block view level 1}
+The only gray field in the context view (Figure \ref{context_view_sds}) is the \acl{SDS}. Therefore, the first view shows the top-level architecture of the design system. \\
+\begin{figure}[htbp]
+    \centerline{
+    \includegraphics[width=\linewidth]{images/building_block_view_level_1.png}}
+\caption{Building block view \ac{SDS} - level 1}
+\label{building_block_level_1_sds}
+\end{figure}
+The level 1 building block view visible in Figure \ref{building_block_level_1_sds} consists of five elements and the two actors interacting with the design system in the context view. Since the SDS is a design system, most of the elements have already been explained in Chapter \ref{design_systems}.\\
+
+\subparagraph{Storybook}
+Storybook is the only component that is unknown. Storybook is a tool that helps create and document components on the web. Storybook makes it easy to develop components and document them at the same time. With a variety of plugins written by the community, it offers many possibilities to act as a documentation tool in a design system. \cite{storybook_storybook_nodate}\\
+The diagram intentionally shows the building block in the middle. It serves as the central documentation system for components, patterns and design tokens. Therefore, the SDS user interacts with the storybook building block by searching for appropriate components for their use case. The diagram shows other relationships to the programmed assets of the design system. These connections represent the documentation aspect of these building blocks within Storybook.\\
+
+\subparagraph{Design principles}
 In terms of design principles, the \ac{SDS} strives to keep them lean and easy to understand. This helps the design system to serve as a basis for other design systems. \\
-
 The \textbf{Simple} principle states that component design should not have unnecessary styles or features that make it difficult to extend. This principle underlines the idea of keeping the entire design system lean. Developers understand lean descriptions and clear documentation much better than reading a wall of text. \\
-
 Many products strive to implement accessibility in their products. With the \textbf{Accessible} principle, \ac{SDS} emphasizes the importance of accessible user interfaces. This emphasizes not only significant in terms of inclusion, but also helps accessibility in the overall user experience for all users. Because \textbf{Accessibility} doesn't just come into play when it relates to disabilities, it helps the application with the overall user experience. \\
-
 The third and final principle is \textbf{Solid}. As stated earlier, the \ac{SDS} is a foundation for other design systems to build upon. Therefore, the importance of a stable and consistent API is paramount. Components and patterns should not change regularly. Versioning allows developers to choose their desired version of the \ac{SDS} without having to adapt. For this reason, the design system has deliberately chosen \textbf{Solid} as the third and final principle. \\
-
 The first iteration of the \acl{SDS} principles provides a good foundation on which to build. As described in Chapter \ref{design_principles}, finding the right design principles will take a few iterations to get right. But by starting with \textbf{Simple}, \textbf{Accessible}, and \textbf{Solid}, designers and developers will find the right way to use this design system.
-\subsubsection{Guidelines}
+
+\subparagraph{Guidelines}
+The next building block that the SDS user comes into contact with are guidelines. It is obvious that the SDS user needs to know about policies in a design system, hence the connection. Furthermore, the diagram shows a bidirectional connection to patterns, which is interpreted as a close cooperation between guidelines and patterns in SDS.\\
 The design principles just presented form the basis for the \ac{SDS} guidelines. In addition to the core guidelines on extension, accessibility, and essential use, some guidelines focus on contributions and collaboration. As this is an open-source system, as many people as possible should be able to work on it. \\
-
 The extension guidelines address how to integrate \ac{SDS} as the basis for a company's own design system. It shows developers and designers how to create their own from the components provided. The goal of such a guide is to help system developers use the SDS as a foundation. The guide helps developers and designers to build their system on the SDS instead of introducing complex integrations. \\
-
 Since accessibility is also a design principle, a guideline must define what the \ac{SDS} means by accessibility. The guideline should give the user a definition and sources for accessibility. But there should also be a manual for self-designed components to help users implement accessibility. Understanding this guide, users should no longer have accessibility questions when designing new interfaces. \\
-
 As a third guideline, the \ac{SDS} will support the user in using the system. This guide could also be seen as an entry guide and will cover the basics. Importing the design system, proper bootstrapping, and guidance on configuring the system. Such a guideline may seem self-explanatory, but the lack of it often prevents users from using the system. The usage guide should be as simple as possible and cover every small step needed to get started with the \ac{SDS}. \\
-
 One goal of this design system is to be developed by the community for the community. However, this can quickly get out of hand if everyone contributes without guidance. Therefore, it is crucial to introduce some from the beginning. This guide guides how to contribute to the component library and enforce changes to the guidelines and principles. \\
 As this design system evolves over time, there should be opportunities to change and adapt. What this will look like in the end will evolve over time. What this will look like in the end will evolve. Some ideas could be a voting process or an RFC process, as is standard in the software industry. \\
-
-
 Some design systems introduce blogs and forums for knowledge exchange to achieve high interactivity in a design system. In this way, users can connect, discuss and contribute to ideas to further improve the design system. A well-moderated blog and forum will further enhance the community around the \ac{SDS}. \\
 Since the \ac{SDS} won't be a product but an open source project, forums and blogs will be the marketing platform to spread the idea of the design system. The goal is to build a strong community around the \ac{SDS}. So that some of the advocates end up contributing to the actual design system. \\
-
 In summary, the guidelines of the \acl{SDS} are about creating a community around the design system. Developer and designers should not only using it for their desired goal, but see the potential to collaborate for the bigger picture behind \ac{SDS}.
 
-
-\subsubsection{Components} \label{sds-component}
+\paragraph{Building block view level 2 - Components}
+\begin{figure}[htbp]
+    \centerline{
+    \includegraphics[width=\linewidth]{images/building_block_view_level_2_component.png}}
+\caption{Building block level 2 component}
+\label{building_block_level_2_component_sds}
+\end{figure}
+\subparagraph{Components} \label{sds-component}
 Without well-assembled components, design systems cannot exist. Therefore, choosing the right technology package for building components is very important. In the case of \ac{SDS}, one of the most essential requirements is that the system is usable independently of the frontend framework used. To achieve this, \ac{SDS} uses the web components supported in almost all modern browsers. As it is possible to create web components without importing libraries or frameworks, it is for \ac{SDS}. \citep{mdn_web_component_nodate} \\
 
 Creating web components natively can be complicated. The Lit Element framework helps developers build web components by eliminating some of the pitfalls of implementing web components from scratch. With a focus on ease of understanding, intelligent DOM updates, and a small package size (5 KB), Lit is a perfect addition for creating components for design systems based on standard web components. \citep{lit_nodate} \\
@@ -51,9 +71,17 @@ The \ac{SDS} uses custom CSS variables to use and provide design tokens for colo
 Last but not least, users must have access to the documentation of the components and tokens. Storybook is the documentation tool for the \ac{SDS}. It has many built-in functions that are useful for documenting components. With MDX, the combination of Markdown templating (MD) and code injection via JSX, it is possible to write fluid documentation without having to jump back and forth between files while documenting components. \citep{otander_markdown_2017} \\
 
 With this technology stack, \ac{SDS} provides users with highly reusable web components that are easy for users to access but also easy for contributors to develop.
+\paragraph{Building block view level 2 - Patterns}
+\begin{figure}[htbp]
+    \centerline{
+    \includegraphics[width=\linewidth]{images/building_block_view_level_2_pattern.png}}
+\caption{Building block level 2 pattern}
+\label{building_block_level_2_pattern_sds}
+\end{figure}
 
 
-\subsubsection{Patterns}
+
+\subparagraph{Patterns}
 An essential part of a design systems are patterns. Patterns try to combine the capabilities of a design system with the design of user interfaces. In the case of \ac{SDS}, patterns help developers automatically apply best practices and web standards without having to read an entire text. \\
 
 The combination of standard HTML elements and components from SDS creates patterns in the SDS. These are easily accessible to the developer by copying and pasting code into the desired application that has implemented the SDS. Additional documentation helps the developer to avoid using patterns where they do not belong. \\
@@ -63,3 +91,6 @@ SDS patterns come with special documentation that allows for customization and r
 As with the component documentation, live examples show the developer how the design system patterns will work in the final product. Several different examples for each pattern present the possibilities for individual design. \ac{SDS} users have the opportunity to share their creations and application of patterns below the documentation. \\
 
 The big benefit of using SDS is the patterns. They simplify web accessibility compliance and leave enough room for individual user designs. The correct use of patterns is crucial for a successful integration of \ac{SDS} into a product.
+
+\subsubsection{Distribution view}
+\subsubsection{Runtime view}
