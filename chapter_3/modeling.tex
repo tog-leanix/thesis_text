@@ -2,32 +2,6 @@
 Modeling the architecture of a system that supports customization of SaaS product user interfaces is not a trivial task. Most of the time, user interface design serves only one product. However, the goal of \ac{SDS} is to find common ground for multiple products in one domain. \\
 Design systems define a common place where the company's products can align. Why is it impossible to develop a central system to create a common idea for user-friendly SaaS products? Not only do well-designed components help align, but a design system foundation with guidelines and principles helps developers and designers create a good product. \\
 
-Discovering ten different design systems from popular SaaS products, as well as design systems with a common purpose, help model a new design system. The goal is to identify best practices from the SaaS world and understand the needs of companies using design systems. Table \ref{tab:design_systems_in_the_wild} reflects the idea of a design system for any business or purpose. The idea varies from design system to design system. \\
-\begin{table}[!ht]
-\begin{tabular}{|p{0.2\linewidth} | p{0.7\linewidth}|}
-\hline
- \textbf{Name} & \textbf{Description} \\ \hline
-ServiceNow \cite{servicenow_servicenow_nodate}  & Platform design system.  Guidance to create components and upload them to the platform. \\ \hline
-Adobe Spectrum  \cite{spectrum_adobe_spectrum_nodate} & User centralised design system. Many well designed components with matching guide to deliver a great experience. Built in web components and react components. \\ \hline
-Zendesk Garden \cite{zendesk_garden_zendesk_nodate} & Basic design system with guidelines, components and patterns. Tailwindcss integration. Built in react components. \\ \hline
-Atlassian Design System \cite{atlassian_design_system_atlassian_nodate} & Design System connected with company values. A lot of guides on how to use designs, components and to write content. Includes also employee motivation. Built in react components. \\ \hline
-Base Web  \cite{base_base_nodate} & Open source design system. Used by Uber. Providing a blog and guides on how to use the base design system. Design System intended to be used as baseline and should be overwritten when used. No principles or values included. \\ \hline
-SAP Fiori  \cite{sap_fiori_nodate} & Standard design system. Focus on accessibility and multiple device support. Including many themes for different applications. Delivers a toolkit to better use the design system as a designer.  \\ \hline
-GOV UK Design System  \cite{govuk_govuk_nodate} & Not really a design system. Missing guidelines and principles. Externals can propose changes. Providing CSS classes for HTML elements.  \\ \hline
-Lightning Design System \cite{lightning_design_system_lightning_nodate} & Design System to support developers and designer at their work. 4 principles with a clear message to align every user. Guidelines and best practices on many topics.  Components are built with pure CSS classes. \\ \hline
-Google Matrial Design \cite{google_material_2022} & Open source design system. Providing the user with design principles which helps to understand the usage of the design system. Material Design provides only components and no patterns. Blogs and further resources are helping additionally to the guidelines. Components are built with pure CSS classes. \\ \hline
-Pluralslight Design System \cite{pluralsight_ds_nodate} & Design System without principles and guidelines. For the moment only components are present. Providing a workflow for developers and designers to contribute to the design system.  Only few patterns. Built with react components.  \\ \hline
-\end{tabular}
-\caption{\label{tab:design_systems_in_the_wild} Overview of 10 existing design systems}
-\end{table}
-
-A good reference for a design system with a suitable use case is the Base Web Design System. Its purpose of providing a base of styles and functional components helps developers to extend the design system and create their own for their products. Also, the fact that this design system is open source underlines that the community is developing this design system, not a corporate design team. As a shared design system, it focuses particularly on accessibility and internationalization. The tutorial explains how to extend and use the design system, which is a perfect reference model for \ac{SDS}. \\
-
-But there are also disadvantages. The Base Web Design System lacks guidelines and principles that are crucial for a design system.
-A look at Google's Material Design shows that even an open-source and versatile design system can have design principles. Design principles help developers get an idea of how to develop and design with the system. Therefore, design principles are essential for design systems. \\
-
-Another reason why the Base Web Design System is not a perfect model is the use of React to create the components. The design system forces developers to use React as a front-end library in their products. This is not an option for SDS to bind developers to a single front-end framework. Therefore, this characteristic of the Base Web Design System is unsuitable. Other examples such as the GOV UK Design System or Salesforce's Lightning Design System show that it is possible to create components using only web standards. \\
-
 With these requirements, Figure \ref{architecture_sds} draws an example architecture of what the SDS may look like.\\
 \begin{figure}[htbp]
 \centerline{\includegraphics[width=\linewidth]{images/architecture_sds.png}}
