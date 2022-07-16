@@ -1,7 +1,7 @@
 \subsection{Architecture}
 The actual architecture of the \ac{SDS} describes the structure of the \ac{SDS}. The elaboration models the architecture according to Starke's four-view principle. The four perspectives describe different aspects of the system architecture. \cite{starke_effektive_2020}
 
-\subsubsection{Context perspective}
+\subsubsection{Context perspective}\label{context_view}
 The context perspective is an overview of the system by modeling out the dependencies to other systems and actors interacting with the system.\\
 \begin{figure}[htbp]
     \centerline{
@@ -61,25 +61,38 @@ The connection to collaborators represents their contributions to the design tok
 Next, it is time to take a closer look at the architecture of the SDS by moving to the second level of the building block view. At the second level, Starke's method performs a more detailed analysis of the building blocks of the components and patterns.
 
 \paragraph{Building block view level 2 - Components}
+The first detailed view deals with the components of SDS. Figure \ref{building_block_level_2_component_sds} shows the diagram of a second level component block view. The component building block is in the middle of this diagram. A lot of connections start from there.
+
 \begin{figure}[htbp]
     \centerline{
     \includegraphics[width=\linewidth]{images/building_block_view_level_2_component.png}}
 \caption{Building block level 2 component}
 \label{building_block_level_2_component_sds}
 \end{figure}
-\subparagraph{Components} \label{sds-component}
-Without well-assembled components, design systems cannot exist. Therefore, choosing the right technology package for building components is very important. In the case of \ac{SDS}, one of the most essential requirements is that the system is usable independently of the frontend framework used. To achieve this, \ac{SDS} uses the web components supported in almost all modern browsers. As it is possible to create web components without importing libraries or frameworks, it is for \ac{SDS}. \citep{mdn_web_component_nodate} \\
+\subparagraph{Component} \label{sds-component}
+Without well-assembled components, design systems cannot exist. Therefore, choosing the right technology package for building components is very important. In the case of \ac{SDS}, one of the most essential requirements is that the system is usable independently of the frontend framework used. The link to the Lit element module symbolizes the use of this lightweight framework, which can be used to create framework-independent components. In addition to this link, the link to Typescript points to another technology that supports building the components.  \\
+The diagram shows that the only actor in the components of the design system is the collaborator. He is responsible for all adjustments of the component. \\
+Since components within a design system must have documentation, this diagram shows a link from the component box to the documentation building block. This indicator shows that a component provides documentation that is then used further in the storybook component to publish it. \\
+Other outgoing connections related to the component module are to the other essential components of a design system - the tokens and patterns. As explained earlier, tokens should be used everywhere when new elements are created within the design system. The connection represents the consumption of design tokens in a component. The other outgoing connection is actually a consumption of the components by the design system patterns. \\
 
-Creating web components natively can be complicated. The Lit Element framework helps developers build web components by eliminating some of the pitfalls of implementing web components from scratch. With a focus on ease of understanding, intelligent DOM updates, and a small package size (5 KB), Lit is a perfect addition for creating components for design systems based on standard web components. \citep{lit_nodate} \\
-
+\subparagraph{Typescript}
 To further assist developers, \ac{SDS} uses Typescript, a superset of Javascript. It extends Javascript with types and interfaces. Typescript must be compiled into Javascript for the browser to understand, but this allows the developer to find errors much faster because it fails at compile time rather than at runtime. \citep{microsoft_typescript_nodate} \\
+For this reason, the diagram in Figure \ref{building_block_level_2_component_sds} shows that Typescript is used by the Lit element and the component module. Therefore, technologically, there is no gap between the component and the framework used.
 
-The \ac{SDS} uses custom CSS variables to use and provide design tokens for colors or spacing. The design system imports the design tokens into the root element during bootstrapping. In the documentation of the design system exists a page with an overview of all design tokens. \citep{mdn_css_vars_nodate} \\
+\subparagraph{Lit-Element}
+Creating web components natively can be complicated. The Lit Element framework helps developers build web components by eliminating some of the pitfalls of implementing web components from scratch. With a focus on ease of understanding, intelligent DOM updates, and a small package size (5 KB), Lit is a perfect addition for creating components for design systems based on standard web components. \citep{lit_nodate} \\
+Since this framework is based on the web standard of web components, the diagram indicates the use of this standard with a link.
 
-Last but not least, users must have access to the documentation of the components and tokens. Storybook is the documentation tool for the \ac{SDS}. It has many built-in functions that are useful for documenting components. With MDX, the combination of Markdown templating (MD) and code injection via JSX, it is possible to write fluid documentation without having to jump back and forth between files while documenting components. \citep{otander_markdown_2017} \\
+\subparagraph{Web components}
+Web Components is a widely supported standard in all modern browsers for creating reusable components. It is not necessary to use a framework like React or Angular. Web Components encapsulate HTML, CSS, and JavaScript from the rest of the elements within a browser. They provide interfaces for communicating data in and out of the component. This makes web components highly reusable in all parts of a web project. \citep{mdn_web_component_nodate} \\
+Due to their high reusability and broad support, web components are a perfect fit for \ac{SDS} components. As described in the previous section, the link in the diagram represents the use of the Web Components standard by Lit-Element.
 
-With this technology stack, \ac{SDS} provides users with highly reusable web components that are easy for users to access but also easy for contributors to develop.
+\subparagraph{Documentation}
+Last but not least, users must have access to the documentation of components. The link in Figure \ref{building_block_level_2_component_sds} from the documentation to the Storybook indicates that it is the documentation tool for the \ac{SDS}. \\
+With MDX, the combination of Markdown templating (MD) and code injection via JSX, it is possible to write fluid documentation without having to jump back and forth between files while documenting components. \citep{otander_markdown_2017} \\
+
 \paragraph{Building block view level 2 - Patterns}
+The second detailed view deals with the patterns of SDS. Figure \ref{building_block_level_2_pattern_sds} shows the diagram of a second level component block view. The pattern building block is in the middle of this diagram. A lot of connections start from there.
 \begin{figure}[htbp]
     \centerline{
     \includegraphics[width=\linewidth]{images/building_block_view_level_2_pattern.png}}
@@ -89,16 +102,59 @@ With this technology stack, \ac{SDS} provides users with highly reusable web com
 
 
 
-\subparagraph{Patterns}
-An essential part of a design systems are patterns. Patterns try to combine the capabilities of a design system with the design of user interfaces. In the case of \ac{SDS}, patterns help developers automatically apply best practices and web standards without having to read an entire text. \\
+\subparagraph{Pattern}
+An essential part of a design systems are patterns. Patterns try to combine the capabilities of a design system with the design of user interfaces. In the case of \ac{SDS}, patterns help developers automatically apply best practices to their product without having to read an entire text. \\
+As with the components of SDS, the only actor is the collaborator. Figure \ref{building_block_level_2_pattern_sds} shows the only link of an actor to the pattern, indicating that he is responsible for all pattern adjustments. \\
+Combining standard HTML elements and components from SDS creates patterns in SDS. The diagram indicates these connections by the arrows shown above. These patterns are easily accessible to the developer by copying and pasting code into the desired application that integrates the \ac{SDS}. \\
+Patterns use design tokens and components of \ac{SDS}, visible here in Figure \ref{building_block_level_2_pattern_sds} as external dependencies. This ensures that the patterns created are consistent with the overall design idea of the design system. \\
+Additional documentation, visible through the connection with the documentation module, helps the developer to avoid using patterns where they do not belong. \\
+The goal of \ac{SDS} patterns is to simplify web accessibility compliance and leave enough room for user customization. Proper use of patterns is crucial for successful integration of \ac{SDS} into a product.
 
-The combination of standard HTML elements and components from SDS creates patterns in the SDS. These are easily accessible to the developer by copying and pasting code into the desired application that has implemented the SDS. Additional documentation helps the developer to avoid using patterns where they do not belong. \\
+\subparagraph{Documentation}
+\ac{SDS} patterns come with special documentation that allows for customization and redesign. The documentation enables developers to fulfill their requirements for their own design system.\\
+As with the component documentation, a link to the storybook shows that the patterns also leverage the power of the features. Features such as live examples show the \ac{SDS} user how the design system patterns will work in the final product. Several different examples for each pattern present the possibilities for individual design. \\
+A special link in Figure \ref{building_block_level_2_pattern_sds} shows the bidirectional connection from documentation to guidelines. This link represents the possibility to share own variants of the \ac{SDS} design patterns. This leads to a high level of interaction of the design patterns within the \acl{SDS}.
 
-SDS patterns come with special documentation that allows for customization and redesign. The documentation enables developers to fulfill their requirements for their own design system.\\
+\subparagraph{HTML elements}
+The last block in the diagram of Figure \ref{building_block_level_2_pattern_sds} is the HTML element. This block is there for several reasons. It's not just about the use of HTML elements within patterns, but also about their proper use. \\
+HTML elements have a lot of built-in accessibility, and that's what SDS's patterns are looking for. Proper use of HTML elements helps structure the code of a web page while providing accessibility for keyboards and screen readers. \citep{mdn_html_nodate}
 
-As with the component documentation, live examples show the developer how the design system patterns will work in the final product. Several different examples for each pattern present the possibilities for individual design. \ac{SDS} users have the opportunity to share their creations and application of patterns below the documentation. \\
-
-The big benefit of using SDS is the patterns. They simplify web accessibility compliance and leave enough room for individual user designs. The correct use of patterns is crucial for a successful integration of \ac{SDS} into a product.
-
-\subsubsection{Distribution view}
 \subsubsection{Runtime view}
+The runtime view is the third view of Starke's four-view principle. Here it is important to find out which components are active for a particular action. This helps to understand which components interact with each other and when, and which preconditions are required for certain processes. \citep{starke_effektive_2020}\\
+An existing use case of a runtime diagram is the interaction of the end user with an application that implements the \ac{SDS}. Considering the context view in Chapter \ref{context_view}, the end user does not interact directly with the \ac{SDS}. Therefore, a sequence diagram helps to understand how the end user ultimately interacts with the \ac{SDS}. \\
+\begin{figure}[htb]
+    \centerline{
+    \includegraphics[width=\linewidth]{images/runtime_diagram_sds.png}}
+\caption{Run time diagram of end user interacting with \ac{SDS}}
+\label{runtime_diagram_sds}
+\end{figure}
+The following steps explain the flow of the sequence diagram shown in Figure \ref{runtime_diagram_sds}.
+\begin{enumerate}
+    \item The end user starts by opening the web browser and accessing a SaaS web application. 
+    \item The opened web application initiates a load of preferentially bundled JavaScript files from the SaaS product.
+    \item  Within the bundled code of the product, components of a component library from a product design system may be included. 
+    \item The product design system is based on the \acl{SDS}, therefore the \ac{SDS} is loaded.
+    \item In return, the \ac{SDS} provides the product development system with the component code as the basis for its components.
+    \item The \ac{SDS} also makes the same components available to the browser so that they are available for rendering.
+    \item The product design system returns its component to the product code.
+    \item The product design system also makes its components available to the browser so that they are available for rendering.
+    \item When all the component information is available, the product code can make the final changes to the components and then return them to the browser for rendering.
+    \item The design tokens of the \ac{SDS} are provided in the root of the browser.
+    \item The design tokens of the product design system are provided in the root of the browser. This will override the tokens of the \ac{SDS}.
+    \item The product code has its own design tokens and overrides them in the last instance.
+    \item After completing all the steps, the browser is able to render the desired web application for the end user.
+\end{enumerate}
+It is important to note in this diagram that the steps (10-12) to load the design tokens in the browser do not have to be behind the component code. Rather, the tokens can be loaded into the browser in parallel. It is only important to note the order in which the design tokens override each other. \\
+As well as the note inside the diagram. It is not necessary to have a design system of a product team between the use of the \ac{SDS}. It is also possible for a SaaS product to use the \ac{SDS} directly.\\
+This completes the runtime view of the end user interacting with the SDS. 
+\subsubsection{Distribution view}
+The fourth and final view of Starke's model is the distribution view. The goal of this view is to show how the system distributes its components. This makes it possible to show crucial interfaces between system components. A distribution diagram displays how components are distributed across the system infrastructure. This view is especially important for the operators of the software system. \cite{starke_effektive_2020} \\
+\begin{figure}[htbp]
+    \centerline{
+    \includegraphics[width=\linewidth]{images/deployment_diagram_sds.png}}
+\caption{Deployment diagram of \ac{SDS}}
+\label{deployment_diagram_sds}
+\end{figure}
+In the case of SDS, a deployment view is difficult to model. Since the design system does not require a backend or database service. The only thing the SDS does is to deploy a bundled JavaScript file via a package manager. This way, the component library is available to everyone. \\
+Figure \ref{deployment_diagram_sds} shows exactly this scenario. The developed design system is deployed in a package manager, in this case the Node package manager. On the left side of the diagram is the local development environment of each developer using the \ac{SDS}. As before, he could have a design system built on top of the \ac{SDS}. \\
+In either case, this local development environment receives the design system through the channel shown in Figure \ref{deployment_diagram_sds}. This channel can either be loaded via a script tag within his web project or installed via the Node package manager within his environment.  
