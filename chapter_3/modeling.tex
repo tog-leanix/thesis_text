@@ -6,12 +6,12 @@ The context perspective is an overview of the system by modeling out the depende
 \begin{figure}[htbp]
     \centerline{
     \includegraphics[width=\linewidth]{images/context_view_sds.png}}
-\caption{Context perspective of SaaS Design System}
+\caption{Context perspective of \ac{SaaS} Design System}
 \label{context_view_sds}
 \end{figure}
 
 Figure \ref{context_view_sds} shows the first view of \citeauthor{starke_effektive_2020}'s approach to modeling the system architecture - the context perspective. As described in the use case in Section \ref{sds_requirements}, the \ac{SDS} has three stakeholders interacting with the design system. The diagram shows the actively interacting stakeholders (\ac{SDS} users and collaborators) through their connections to the \ac{SDS}. \\
-It also shows the "end user" who is not directly connected to the \ac{SDS}, but to a product from a SaaS company. Nevertheless, it is important to mention the end user is the reason why the \ac{SDS} ultimately exists. Following the arrow trail that starts from the SaaS company's product, the \ac{SDS} will always be the one to end up with. This means that the product uses the \ac{SDS} in some way either directly or through the company's design system. \\
+It also shows the "end user" who is not directly connected to the \ac{SDS}, but to a product from a \ac{SaaS} company. Nevertheless, it is important to mention the end user is the reason why the \ac{SDS} ultimately exists. Following the arrow trail that starts from the \ac{SaaS} company's product, the \ac{SDS} will always be the one to end up with. This means that the product uses the \ac{SDS} in some way either directly or through the company's design system. \\
 The stakeholder who interacts directly with both the SDS and the company's product is the SDS user. User is perhaps a bit misleading, but if you take it that way, this persona uses the SDS to develop or design products from it. This stakeholder may also build the company's design system based on the SDS. This design system is then used by the company's products.\\
 The last persona is the collaborator. The collaborator is not interested in applications or design systems that use SDS. The only thing the collaborator wants to do is contribute to the open source project. This is also the reason why this actor is placed inside the system, as the box around him represents the community around SDS.
 
@@ -130,8 +130,8 @@ An existing use case of a runtime diagram is the interaction of the end user wit
 \end{figure}
 The following steps explain the flow of the sequence diagram shown in Figure \ref{runtime_diagram_sds}.
 \begin{enumerate}
-    \item The end user starts by opening the web browser and accessing a SaaS web application. 
-    \item The opened web application initiates a load of preferentially bundled JavaScript files from the SaaS product.
+    \item The end user starts by opening the web browser and accessing a \ac{SaaS} web application. 
+    \item The opened web application initiates a load of preferentially bundled JavaScript files from the \ac{SaaS} product.
     \item  Within the bundled code of the product, components of a component library from a product design system may be included. 
     \item The product design system is based on the \acl{SDS}, therefore the \ac{SDS} is loaded.
     \item In return, the \ac{SDS} provides the product development system with the component code as the basis for its components.
@@ -145,7 +145,7 @@ The following steps explain the flow of the sequence diagram shown in Figure \re
     \item After completing all the steps, the browser is able to render the desired web application for the end user.
 \end{enumerate}
 It is important to note in this diagram that the steps (10-12) to load the design tokens in the browser do not have to be behind the component code. Rather, the tokens can be loaded into the browser in parallel. It is only important to note the order in which the design tokens override each other. \\
-As well as the note inside the diagram. It is not necessary to have a design system of a product team between the use of the \ac{SDS}. It is also possible for a SaaS product to use the \ac{SDS} directly.\\
+As well as the note inside the diagram. It is not necessary to have a design system of a product team between the use of the \ac{SDS}. It is also possible for a \ac{SaaS} product to use the \ac{SDS} directly.\\
 This completes the runtime view of the end user interacting with the SDS. 
 \subsubsection{Distribution view}
 The fourth and final view of Starke's model is the distribution view. The goal of this view is to show how the system distributes its components. This makes it possible to show crucial interfaces between system components. A distribution diagram displays how components are distributed across the system infrastructure. This view is especially important for the operators of the software system. \cite{starke_effektive_2020} \\
