@@ -84,7 +84,7 @@ Creating web components natively can be complicated. The Lit Element framework h
 Since this framework is based on the web standard of web components, the diagram indicates the use of this standard with a link.
 
 \subparagraph{Web components}
-Web Components is a widely supported standard in all modern browsers for creating reusable components. It is not necessary to use a framework like React or Angular. Web Components encapsulate HTML, CSS, and JavaScript from the rest of the elements within a browser. They provide interfaces for communicating data in and out of the component. This makes web components highly reusable in all parts of a web project. \citep{mdn_web_component_nodate} \\
+Web Components is a widely supported standard in all modern browsers for creating reusable components. It is not necessary to use a framework like React or Angular. Web Components encapsulate \ac{HTML}, \ac{CSS}, and JavaScript from the rest of the elements within a browser. They provide interfaces for communicating data in and out of the component. This makes web components highly reusable in all parts of a web project. \citep{mdn_web_component_nodate} \\
 Due to their high reusability and broad support, web components are a perfect fit for \ac{SDS} components. As described in the previous section, the link in the diagram represents the use of the Web Components standard by Lit-Element.
 
 \subparagraph{Documentation}
@@ -105,7 +105,7 @@ The second detailed view deals with the patterns of SDS. Figure \ref{building_bl
 \subparagraph{Pattern}
 An essential part of a design systems are patterns. Patterns try to combine the capabilities of a design system with the design of user interfaces. In the case of \ac{SDS}, patterns help developers automatically apply best practices to their product without having to read an entire text. \\
 As with the components of SDS, the only actor is the collaborator. Figure \ref{building_block_level_2_pattern_sds} shows the only link of an actor to the pattern, indicating that he is responsible for all pattern adjustments. \\
-Combining standard HTML elements and components from SDS creates patterns in SDS. The diagram indicates these connections by the arrows shown above. These patterns are easily accessible to the developer by copying and pasting code into the desired application that integrates the \ac{SDS}. \\
+Combining standard \ac{HTML} elements and components from SDS creates patterns in SDS. The diagram indicates these connections by the arrows shown above. These patterns are easily accessible to the developer by copying and pasting code into the desired application that integrates the \ac{SDS}. \\
 Patterns use design tokens and components of \ac{SDS}, visible here in Figure \ref{building_block_level_2_pattern_sds} as external dependencies. This ensures that the patterns created are consistent with the overall design idea of the design system. \\
 Additional documentation, visible through the connection with the documentation module, helps the developer to avoid using patterns where they do not belong. \\
 The goal of \ac{SDS} patterns is to simplify web accessibility compliance and leave enough room for user customization. Proper use of patterns is crucial for successful integration of \ac{SDS} into a product.
@@ -115,9 +115,9 @@ The goal of \ac{SDS} patterns is to simplify web accessibility compliance and le
 As with the component documentation, a link to the storybook shows that the patterns also leverage the power of the features. Features such as live examples show the \ac{SDS} user how the design system patterns will work in the final product. Several different examples for each pattern present the possibilities for individual design. \\
 A special link in Figure \ref{building_block_level_2_pattern_sds} shows the bidirectional connection from documentation to guidelines. This link represents the possibility to share own variants of the \ac{SDS} design patterns. This leads to a high level of interaction of the design patterns within the \acl{SDS}.
 
-\subparagraph{HTML elements}
-The last block in the diagram of Figure \ref{building_block_level_2_pattern_sds} is the HTML element. This block is there for several reasons. It's not just about the use of HTML elements within patterns, but also about their proper use. \\
-HTML elements have a lot of built-in accessibility, and that's what SDS's patterns are looking for. Proper use of HTML elements helps structure the code of a web page while providing accessibility for keyboards and screen readers. \citep{mdn_html_nodate}
+\subparagraph{\ac{HTML} elements}
+The last block in the diagram of Figure \ref{building_block_level_2_pattern_sds} is the \ac{HTML} element. This block is there for several reasons. It's not just about the use of \ac{HTML} elements within patterns, but also about their proper use. \\
+\ac{HTML} elements have a lot of built-in accessibility, and that's what SDS's patterns are looking for. Proper use of \ac{HTML} elements helps structure the code of a web page while providing accessibility for keyboards and screen readers. \citep{mdn_html_nodate}
 
 \subsubsection{Runtime view}
 The runtime view is the third view of Starke's four-view principle. Here it is important to find out which components are active for a particular action. This helps to understand which components interact with each other and when, and which preconditions are required for certain processes. \citep{starke_effektive_2020}\\
