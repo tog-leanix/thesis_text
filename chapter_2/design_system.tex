@@ -98,13 +98,13 @@ This chapter lays the foundation with the guidelines and design principles, whil
 The technical counterpart to the description guidelines and design principles is the component library. Both cannot exist in a design system without each other.  By definition, a component is "a constituent part"  of in this case a user interface. \cite{component_definition} Combined with library, which means a "collection of something", it results in a collection of important constituent parts for user interfaces. \cite{library_definition} \\
 The definitions existing from the literature are as follows:
 \begin{tcolorbox}[title=Definition of component library by \citet*{vesselov_building_2019}]
-A set of styles and components that can be used and shared among a team. A component library consists of common core elements that are used throughout an application. [...] Component libraries may or may not include living code. [...] Unlike UI frameworks such as Bootstrap, component libraries are tailored to specific purposes, like an internal brand.
+A set of styles and components that can be used and shared among a team. A component library consists of common core elements that are used throughout an application. [...] Component libraries may or may not include living code. [...] Unlike \ac{UI} frameworks such as Bootstrap, component libraries are tailored to specific purposes, like an internal brand.
 \end{tcolorbox}
 In addition to components, there are also styling rules that also include layout specifications in component libraries. 
 \begin{tcolorbox}[title=Definition of component library by \citet*{macdonald_practical_2019}]
-Component libraries, UI libraries, or code libraries provide frontend code for UI components (a.k.a. widgets, modules, chunks, blocks). Internally, you might use a component library as a shared collection of UI snippets implementing patterns that anyone in the organization can contribute to building.
+Component libraries, \ac{UI} libraries, or code libraries provide frontend code for \ac{UI} components (a.k.a. widgets, modules, chunks, blocks). Internally, you might use a component library as a shared collection of \ac{UI} snippets implementing patterns that anyone in the organization can contribute to building.
 \end{tcolorbox}
-An important point that emerges from these definitions is that component libraries have a clear focus on internal use. This is also the main difference to UI frameworks. \\
+An important point that emerges from these definitions is that component libraries have a clear focus on internal use. This is also the main difference to \ac{UI} frameworks. \\
 After reviewing various design systems, component libraries are divided into 4 categories:
 \begin{itemize}
 	\item \textbf{Layout} - Spacing and presentation of content placement on a site
@@ -115,7 +115,7 @@ After reviewing various design systems, component libraries are divided into 4 c
 
 \subsubsection{Layout} \label{layout}
 The foundation of any design system is the ability to place, move, or arrange elements on web pages. To achieve a consistent appearance in applications, it is important to align spacing and positioning in a central place. \\ 
-For this purpose, so-called design tokens in form of CSS variables are often used. Similar to Tailwind (\url{https://tailwindcss.com/}), CSS classes implement design tokens and abstract them, so the developer does not need to use the variables natively. Thus, the developer does not need to know anything about CSS.  \\
+For this purpose, so-called design tokens in form of \ac{CSS} variables are often used. Similar to Tailwind (\url{https://tailwindcss.com/}), \ac{CSS} classes implement design tokens and abstract them, so the developer does not need to use the variables natively. Thus, the developer does not need to know anything about \ac{CSS}.  \\
 Salesforce Lightning Design System, for example, lists all layout tools under \textbf{Utilities}. It sets sizes for text, simple boxes, and spacing between components. In fact, a sophisticated grid layout system can be seen as well. \\
 \begin{figure}[hbtp]
 	\centerline{\includegraphics[width=\linewidth]{images/salesforce_lightning_layout.png}}
@@ -123,7 +123,7 @@ Salesforce Lightning Design System, for example, lists all layout tools under \t
 	\label{salesforce_lightning_layout}
 \end{figure} 
 
-Figure \ref{salesforce_lightning_layout} shows that CSS classes achieve the desired layout. Furthermore, both dynamic and static layouts are supported. So the user has all possibilities to use the layout of the design system.\\
+Figure \ref{salesforce_lightning_layout} shows that \ac{CSS} classes achieve the desired layout. Furthermore, both dynamic and static layouts are supported. So the user has all possibilities to use the layout of the design system.\\
 Besides the usual regulations for spacing and positioning, other points like visibility, scrollability or printability can also be described in the layout. Basically, all requirements for visible elements in the target system can be specified by the default layouting in the design system.
 
 \subsubsection{Styles}
@@ -140,7 +140,7 @@ Without changing the functionality or layout, the product team can change the co
 \end{figure}
 It is always important to keep accessibility in mind when choosing colors. For a specific text size, it is important to maintain a certain contrast on colors. The WCAG (\url{https://www.w3.org/WAI/standards-guidelines/wcag/}) describes this contrast with two levels AA and AAA. This contrast is especially important if a product has several long paragraphs.  \\
 Adobe's Spectrum Design System in Figure \ref{adobe_spectrum_colors} illustrates that design systems provide not just one color, but an entire color palette. The colors are often divided into primary, secondary, text color, background color, accent colors, shadows and so on. \\
-Again, CSS variables with the appropriate names consume color tokens to provide them later for product implementation. The challenge is to offer a well-defined color palette, but at the same time not to overload the user. Too many colors quickly confuse users about which color to use for the feature. \cite{vesselov_building_2019}
+Again, \ac{CSS} variables with the appropriate names consume color tokens to provide them later for product implementation. The challenge is to offer a well-defined color palette, but at the same time not to overload the user. Too many colors quickly confuse users about which color to use for the feature. \cite{vesselov_building_2019}
 
 \paragraph{Typography}
 A typography system has two different categories. \\
@@ -190,6 +190,6 @@ Patterns specify a combination of several components and document the compositio
 	\label{atlassian_form_layout}
 \end{figure}
 Atlassian's design system provides an excellent example of a pattern with its forms. Figure \ref{atlassian_form_layout} shows an abstract visualisation of how input fields and buttons should be placed when a form is on a single page. This abstraction leaves no room for interpretation, and developers and designers can continue with their work. \\
-Patterns refer not only to the interaction of components, but also to the switching of visualization due to changes in a user's permissions, for example. A pattern documents all UI changes related to the user experience, no matter how small. \cite{vesselov_building_2019} \\
+Patterns refer not only to the interaction of components, but also to the switching of visualization due to changes in a user's permissions, for example. A pattern documents all \ac{UI} changes related to the user experience, no matter how small. \cite{vesselov_building_2019} \\
 Most often, patterns appear in the general navigation of applications. Such navigation patterns evolve naturally from introducing them into products and grow iteratively with more and more feedback from the product development team.\\
 A good example for a pattern is the navigation bar. By combining components such as buttons, dropdowns, and images, a navigation bar is created. Together with skeleton code around these components documented in a pattern, they form a complete navigation area within an application. 
