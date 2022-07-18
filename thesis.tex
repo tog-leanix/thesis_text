@@ -43,6 +43,7 @@
 \usepackage{picinpar}
 \usepackage{multicol}
 \usepackage{tcolorbox}
+\usepackage{rotating}
 
 %Bibliography
 \usepackage[
@@ -225,12 +226,14 @@ eprint=false
 %\bibliographystyle{plain} % only numbers
 %\bibliographystyle{unibonn_ay} % a special file used for the uni bonn
 
-%% Start of the appendix
-%\appendix 
-%% The appendix is a chapter
-%\include{chapter/appendix}
+
 \newpage
 \singlespacing % bibliography with single spacing 
 \printbibliography
+
+%% Start of the appendix
+\appendix 
+%% The appendix is a chapter
+\include{appendix}
 \end{document}
  
