@@ -1,6 +1,49 @@
 \subsection{Test evaluation}
-After both test results have been presented, it is now possible to interpret the results. On the one hand, the subjective observation of each test run and, on the other hand, objective data from performance time stamps during the execution of each test run. \\
-From the observation perspective, it looks like the systems are behaving quite similarly. A comparison of the objectively collected data with the notes made shows that the observation is reflected in some test runs. Recognizable by the large bars for locating the data table. As well as the small bars. \\
+The tests were designed to prove the hypothesis of whether the SDS helps users complete a basic task faster than an application without SDS implementation. After both test results have been presented, it is now possible to interpret the results. On the one hand, the subjective observation of each test run and, on the other hand, objective data from performance time stamps during the execution of each test run. \\
+From an observational perspective, it looks like the systems behave quite similarly. As the results show, there are no particular patterns in either application. The observation therefore indicates that it makes no difference with which application the user performs the task. \\
+
+To evaluate the recorded timestamps of the test runs, a statistical hypothesis test must be performed. The chi-square test according to \citeauthor{pearson_x_1900} helps to identify whether an application is faster with SDS than without SDS. To begin the method, a null hypothesis must be defined. In this case, the null hypothesis is whether the application with SDS implemented is faster than the normal application. The result should be significant with a probability of 95\%. \cite{pearson_x_1900} \\ 
+Since it is not possible to compare the data of each set of tests because they were performed by different users, a different measurement is required. Therefore, each test run is checked whether the total time required is less than 60 seconds or not. Aggregating the results down, the results table looks like this:
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|p{0.2\linewidth} || p{0.1\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|}
+        \hline
+        \textbf{Total time under 60 seconds?} &\textbf{Normal}&\textbf{\ac{SDS}}&\textbf{Total} \\ \hline\hline
+        \textbf{yes} & 7 & 8 & 15 \\ \hline
+        \textbf{no} & 4 & 3 & 7 \\ \hline
+        \textbf{Total} & 11 & 11 & 22 \\ \hline
+    \end{tabular}
+    \caption{\label{tab:chi-square} Aggregated test results}
+\end{table}
+The next step is to calculate the expected values for each variant. To do this, the sum of each test set is multiplied by the sum of the results for the met criteria of both runs. The result is then divided by the sum of all test runs. Applying this to all values in the table, the expected values look like this:
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|p{0.2\linewidth} || p{0.1\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|}
+        \hline
+        \textbf{Total time under 60 seconds?} &\textbf{Normal}&\textbf{\ac{SDS}}&\textbf{Total} \\ \hline\hline
+        \textbf{yes} & 7.5 & 7.5 & 15 \\ \hline
+        \textbf{no} & 3.5 & 3.5 & 7 \\ \hline
+        \textbf{Total} & 11 & 11 & 22 \\ \hline
+    \end{tabular}
+    \caption{\label{tab:chi-square-expected} Expected test results}
+\end{table}
+With the expected and actual values, it is now possible to calculate the chi-square value for each entry in the table. The following formula calculates the chi-square value for each entry:
+\[\chi^2=\frac{(A_{jk} - E_{jk})^2}{E_{jk}}\]
+
+Choosing $A_{jk}$ as an entry from the table of actual values and $E_{jk}$ as a value from the expected values, a new table is calculated with all $\chi^2$. The table looks like this:
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|p{0.2\linewidth} || p{0.1\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|}
+        \hline
+        \textbf{Total time under 60 seconds?} &\textbf{Normal}&\textbf{\ac{SDS}}&\textbf{Total} \\ \hline\hline
+        \textbf{yes} & 0.03 & 0.03 & 0.06 \\ \hline
+        \textbf{no} & 0.07 & 0.07 & 0.14 \\ \hline
+        \textbf{Total} & 0.1 & 0.1 & 0.2 \\ \hline
+    \end{tabular}
+    \caption{\label{tab:chi-square-results} Chi-squared results}
+\end{table}
+The total $\chi^2$ value of the test data is \texttt{0.2}. Using the chi-square distribution table, the determined probability and the degree of freedom of the table, the value for the statistical relevance is determined. For this test, the value to achieve is \texttt{3.84}. Since the total value is less than the determined value, there is no statistically significant relationship between the use of the SDS and the total time required to complete the test.
+
 One point where the subjective feel differs from the objective data is where the test users entered a new data entry. Even there, the observations note that it was faster when the application did not implement the SDS. It turns out that users entered data an average of 8 seconds faster. This is a key indicator that the design system is helping the user with form consistency. Somehow the user was able to insert data into the form 25\% faster. \\
 The data collected via the buttons correspond to subjective perception. Users quickly skip the table view to enter new data through the form. This shows, however, that an application implements buttons that are instantly recognized by the user. \\
 But not only the form is an indicator that a design system helps the user to complete his tasks faster, but also the implemented navigation bar seems different than in the application without the \ac{SDS}. Here it is again important that the user finds and uses the navigation bar more quickly on average. \\
