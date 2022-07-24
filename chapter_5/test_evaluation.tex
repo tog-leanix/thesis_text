@@ -1,12 +1,12 @@
 \subsection{Test evaluation}
-The tests were designed to prove the hypothesis of whether the SDS helps users complete a basic task faster than an application without \ac{SDS} implementation. After both test results have been presented, it is now possible to interpret the results. On the one hand, the subjective observation of each test run and, on the other hand, objective data from performance time stamps during the execution of each test run. \\
-From an observational perspective, it looks like the systems behave quite similarly. As the results show, there are no particular patterns in either application. The observation therefore indicates that it makes no difference with which application the user performs the task. \\
-The performance data from the test runs show a relatively similar result. In the normal test runs, there seems to be a clear division of usage patterns. Either a relatively large amount of time is spent finding the data table or a relatively large amount of time is spent adding data. Compared to the \ac{SDS} test runs, the time patterns are more balanced, with a smooth transition between long time for finding the data table and long time for data entry. This difference in patterns is indicative of more extremes in the runs for the normal version. \\
-In addition to this information, the boxplot diagram provides further insights. Again, the noticeable pattern in the normal test runs is visible. The normal data has a much wider range in the boxplot than the \ac{SDS} test runs. The normal application seems to have a more random pattern of interaction than the \ac{SDS} application. But this is not all bad, the normal data run is also better in terms of minimum time. The \ac{SDS} seems to help the application create a more consistent usage pattern for the users. \\
-In conclusion, the use of the \ac{SDS} helps to perform tasks more consistently and thus faster. The results of the graph show that the \ac{SDS} is generally faster. As a final step, the chi-square test is used to evaluate whether the data points just presented are statically significant.\\
+The design of the tests proves the hypothesis of whether the SDS helps users complete a simple task faster than an application without \ac{SDS} implementation. After both test results presentations, it is possible to interpret the results. On the one hand, the subjective observation of each test run and, on the other hand, objective data from performance time stamps during the execution of each test run.  \\
+From an observational perspective, it looks like the systems behave pretty similarly. As the results show, there are no particular patterns in either application. The observation indicates that it makes no difference with which application the user performs the task.  \\
+The performance data from the test runs show a relatively similar result. In the normal test runs, there seems to be a clear division of usage patterns. For example, a user spends a relatively large amount of time finding the data table or a relatively large amount of time adding data. Compared to the \ac{SDS} test runs, the time patterns are more balanced, with a smooth transition between a long time for finding the data table and a long time for data entry. This pattern difference indicates more extremes in the runs for the normal version.  \\
+In addition to this information, the boxplot diagram provides further insights. Again, the noticeable pattern in the normal test runs is visible. TThe normal data has a broader range in the boxplot than the \ac{SDS} test runs. The normal application seems to have a more random interaction pattern than the \ac{SDS} application. However, this is not all bad. The normal data run also better in terms of minimum time. The \ac{SDS} seems to help the application create a more consistent user usage pattern.  \\
+In conclusion, using the \ac{SDS} helps to perform tasks more consistently and thus faster. Furthermore, the graph results show that the \ac{SDS} is generally faster. As a final step, the chi-square test evaluates whether the data points presented are statistically significant. \\
 
-To evaluate this, the recorded timestamps are subjected to a statistical hypothesis test. The chi-square test according to \citeauthor{pearson_x_1900} helps to identify whether an application is faster with SDS than without SDS. To begin the method, a null hypothesis must be defined. In this case, the null hypothesis is whether the application with SDS implemented is faster than the normal application. The result should be significant with a probability of 95\%. \cite{pearson_x_1900} \\ 
-Since it is not possible to compare the data of each set of tests because they were performed by different users, a different measurement is required. Therefore, each test run is checked whether the total time required is less than 60 seconds or not. Aggregating the results down, the results table looks like this:
+The chi-square test, according to \citeauthor{pearson_x_1900}, helps to identify whether an application is faster with \ac{SDS} than without \ac{SDS}. As the first step, a null hypothesis must be defined. In this case, the null hypothesis is whether the application with SDS implemented is faster than the normal application. The result should be significant, with a probability of 95\%. \cite{pearson_x_1900} \\ 
+Since it is impossible to compare the data of each set of tests because different users performed them, a different measurement is required. Therefore, the test looks at each run and whether the required time is less than 60 seconds. Summing up the results, the table looks like this:
 \begin{table}[ht]
     \centering
     \begin{tabular}{|p{0.2\linewidth} || p{0.1\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|}
@@ -18,7 +18,7 @@ Since it is not possible to compare the data of each set of tests because they w
     \end{tabular}
     \caption{\label{tab:chi-square} Aggregated test results}
 \end{table}
-The next step is to calculate the expected values for each variant. To do this, the sum of each test set is multiplied by the sum of the results for the met criteria of both runs. The result is then divided by the sum of all test runs. Applying this to all values in the table, the expected values look like this:
+The next step is to calculate the expected values for each variant. First, the test multiplies each test set by the sum of the results for the met criteria of both runs. Then the sum of all test runs divides the product from before. After processing all values in the table with this method, the table looks like this: 
 \begin{table}[ht]
     \centering
     \begin{tabular}{|p{0.2\linewidth} || p{0.1\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|}
@@ -33,7 +33,8 @@ The next step is to calculate the expected values for each variant. To do this, 
 With the expected and actual values, it is now possible to calculate the chi-square value for each entry in the table. The following formula calculates the chi-square value for each entry:
 \[\chi^2=\frac{(A_{jk} - E_{jk})^2}{E_{jk}}\]
 
-Choosing $A_{jk}$ as an entry from the table of actual values and $E_{jk}$ as a value from the expected values, a new table is calculated with all $\chi^2$. The table looks like this:
+$A_{jk}$ is an entry of the actual values table, and $E_{jk}$ is a value of the expected value table. The result is a new table with all $\chi^2$ values. The table looks like this:
+
 \begin{table}[ht]
     \centering
     \begin{tabular}{|p{0.2\linewidth} || p{0.1\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|}
@@ -45,6 +46,6 @@ Choosing $A_{jk}$ as an entry from the table of actual values and $E_{jk}$ as a 
     \end{tabular}
     \caption{\label{tab:chi-square-results} Chi-squared results}
 \end{table}
-The total $\chi^2$ value of the test data is \texttt{0.2}. Using the chi-square distribution table, the determined probability and the degree of freedom of the table, the value for the statistical relevance is determined. For this test, the value to achieve is \texttt{3.84}. Since the total value is less than the determined value, there is no statistically significant relationship between the use of the SDS and the total time required to complete the test. \\
+The total $\chi^2$ value of the test data is \texttt{0.2}. The chi-square distribution table determines the degree of freedom of the table and the specified probability of the value for the statistical relevance. For this test, the value to achieve is \texttt{3.84}. Since the total value is less than the determined value, no statistically significant relationship exists between using the SDS and the total time required to complete the task. \\
 
 Thus, the test results provide a clear statement. While the test results indicate that a design system contributes to consistency in the use of an application, the evaluation of this data concludes that the results are not statistically significant and that the SDS does not affect the performance of completing tasks in an application.
